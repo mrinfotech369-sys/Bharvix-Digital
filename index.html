@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bharvix Digital - Growth Marketing Agency</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --or: #FF5C1A;
+  --wh: #F5F0EB;
+  --gr: #9A9088;
+  --dk: #0A0906;
+  --cd: #0F0E0B;
+  --bd: #222018;
+  --bh: #332E28;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--dk); color: var(--wh); font-family: 'DM Sans', sans-serif; overflow-x: hidden; }
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 700;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 20px 60px;
+  background: rgba(10,9,6,0.9);
+  border-bottom: 1px solid var(--bd);
+  backdrop-filter: blur(10px);
+}
+.logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 22px; color: var(--wh); text-decoration: none; }
+.logo span { color: var(--or); }
+.nav-links { display: flex; gap: 30px; list-style: none; }
+.nav-links a { color: var(--gr); text-decoration: none; font-size: 13px; letter-spacing: .08em; text-transform: uppercase; font-weight: 500; transition: color .2s; }
+.nav-links a:hover { color: var(--wh); }
+.nav-cta { background: var(--or) !important; color: var(--dk) !important; padding: 9px 22px; border-radius: 4px; font-weight: 700 !important; }
+
+/* HERO */
+.hero {
+  min-height: 100vh; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; text-align: center;
+  padding: 120px 40px 80px; position: relative; overflow: hidden;
+}
+.hero-glow {
+  position: absolute; top: -150px; left: 50%; transform: translateX(-50%);
+  width: 700px; height: 700px;
+  background: radial-gradient(circle, rgba(255,92,26,0.15) 0%, transparent 65%);
+  pointer-events: none;
+}
+.badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(255,92,26,0.1); border: 1px solid rgba(255,92,26,0.3);
+  padding: 8px 20px; border-radius: 100px; font-size: 12px;
+  letter-spacing: .12em; text-transform: uppercase; color: var(--or);
+  font-weight: 600; margin-bottom: 32px;
+}
+.badge-dot { width: 7px; height: 7px; background: var(--or); border-radius: 50%; animation: blink 2s ease infinite; }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
+.hero h1 {
+  font-family: 'Syne', sans-serif; font-size: clamp(52px, 9vw, 110px);
+  font-weight: 800; line-height: .9; letter-spacing: -.04em; margin-bottom: 28px;
+}
+.hero h1 em { color: var(--or); font-style: normal; display: block; }
+.hero-p { max-width: 500px; font-size: 17px; line-height: 1.75; color: var(--gr); font-weight: 300; margin-bottom: 44px; }
+.hero-btns { display: flex; gap: 12px; align-items: center; }
+.btn-fill { background: var(--or); color: var(--dk); padding: 15px 36px; border-radius: 5px; font-family: 'Syne', sans-serif; font-weight: 800; font-size: 14px; letter-spacing: .04em; text-transform: uppercase; text-decoration: none; box-shadow: 0 0 40px rgba(255,92,26,.3); transition: transform .2s, box-shadow .2s; }
+.btn-fill:hover { transform: translateY(-2px); box-shadow: 0 8px 50px rgba(255,92,26,.5); }
+.btn-out { border: 1px solid var(--bh); color: var(--gr); padding: 15px 36px; border-radius: 5px; font-family: 'Syne', sans-serif; font-weight: 600; font-size: 14px; letter-spacing: .04em; text-transform: uppercase; text-decoration: none; transition: border-color .2s, color .2s; }
+.btn-out:hover { border-color: var(--or); color: var(--or); }
+.stats { display: flex; gap: 56px; margin-top: 72px; padding-top: 40px; border-top: 1px solid var(--bd); }
+.stat .n { font-family: 'Syne', sans-serif; font-size: 36px; font-weight: 800; color: var(--wh); }
+.stat .n sup { color: var(--or); font-size: .55em; }
+.stat .l { font-size: 12px; color: var(--gr); text-transform: uppercase; letter-spacing: .1em; margin-top: 4px; }
+
+/* TICKER */
+.ticker-wrap { overflow: hidden; border-top: 1px solid var(--bd); border-bottom: 1px solid var(--bd); padding: 14px 0; background: var(--cd); }
+.ticker { display: flex; width: max-content; animation: tick 20s linear infinite; }
+.ti { padding: 0 32px; font-size: 12px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: var(--gr); white-space: nowrap; }
+.ti::after { content: ' * '; color: var(--or); }
+@keyframes tick { to { transform: translateX(-50%); } }
+
+/* SECTIONS */
+.wrap { max-width: 1280px; margin: 0 auto; padding: 110px 60px; }
+.sec-lbl { font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--or); font-weight: 600; margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
+.sec-lbl::before { content: ''; width: 22px; height: 1px; background: var(--or); }
+.sec-h { font-family: 'Syne', sans-serif; font-weight: 800; font-size: clamp(34px,5vw,58px); line-height: 1.02; letter-spacing: -.03em; color: var(--wh); margin-bottom: 18px; }
+.sec-p { color: var(--gr); font-size: 15px; line-height: 1.8; max-width: 450px; }
+
+/* SERVICES */
+.svc-hd { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 56px; flex-wrap: wrap; gap: 24px; }
+.svc-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; }
+.svc-card { background: var(--cd); border: 1px solid var(--bd); padding: 44px 36px; position: relative; overflow: hidden; transition: border-color .3s, transform .25s; }
+.svc-card:hover { border-color: var(--or); transform: translateY(-4px); }
+.svc-tag { position: absolute; top: 20px; right: 20px; background: var(--or); color: var(--dk); font-size: 9px; font-weight: 800; letter-spacing: .12em; padding: 4px 10px; border-radius: 3px; text-transform: uppercase; }
+.svc-num { font-family: 'Syne', sans-serif; font-size: 11px; color: var(--or); letter-spacing: .14em; font-weight: 700; margin-bottom: 24px; display: block; }
+.svc-icon { width: 48px; height: 48px; background: rgba(255,92,26,0.1); border: 1px solid rgba(255,92,26,0.25); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 22px; }
+.svc-name { font-family: 'Syne', sans-serif; font-size: 22px; font-weight: 800; color: var(--wh); margin-bottom: 12px; letter-spacing: -.02em; }
+.svc-desc { color: var(--gr); font-size: 13.5px; line-height: 1.8; margin-bottom: 28px; }
+.svc-list { list-style: none; }
+.svc-list li { color: var(--gr); font-size: 13px; padding: 7px 0; border-bottom: 1px solid var(--bd); display: flex; align-items: center; gap: 10px; }
+.svc-list li::before { content: '>'; color: var(--or); font-weight: 700; flex-shrink: 0; }
+
+/* PROCESS */
+.proc-ctr { text-align: center; margin-bottom: 72px; }
+.proc-ctr .sec-lbl { justify-content: center; }
+.proc-ctr .sec-p { margin: 0 auto; text-align: center; }
+.proc-steps { display: grid; grid-template-columns: repeat(4,1fr); gap: 0; position: relative; }
+.proc-steps::before { content: ''; position: absolute; top: 30px; left: 12%; right: 12%; height: 1px; background: linear-gradient(to right, transparent, var(--bd), rgba(255,92,26,.3), var(--bd), transparent); }
+.proc-step { text-align: center; padding: 0 16px; }
+.proc-num { width: 60px; height: 60px; border-radius: 50%; background: var(--cd); border: 1px solid var(--bd); display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; font-family: 'Syne', sans-serif; font-size: 17px; font-weight: 800; color: var(--or); position: relative; z-index: 1; transition: background .3s, border-color .3s; }
+.proc-step:hover .proc-num { background: var(--or); color: var(--dk); border-color: var(--or); }
+.proc-t { font-family: 'Syne', sans-serif; font-size: 16px; font-weight: 700; color: var(--wh); margin-bottom: 10px; }
+.proc-d { color: var(--gr); font-size: 13px; line-height: 1.72; }
+
+/* PRICING */
+.price-ctr { text-align: center; margin-bottom: 60px; }
+.price-ctr .sec-lbl { justify-content: center; }
+.price-ctr .sec-p { margin: 0 auto; text-align: center; }
+.price-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; }
+.p-card { background: var(--cd); border: 1px solid var(--bd); padding: 44px 36px; position: relative; transition: border-color .3s; }
+.p-card.hot { border-color: var(--or); background: linear-gradient(135deg, #0F0E0B, #160C05); }
+.p-card.hot::before { content: 'MOST POPULAR'; position: absolute; top: -1px; left: 50%; transform: translateX(-50%); background: var(--or); color: var(--dk); font-size: 9px; font-weight: 800; letter-spacing: .14em; padding: 5px 14px; border-radius: 0 0 6px 6px; }
+.p-plan { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--gr); font-weight: 600; margin-bottom: 16px; }
+.p-amt { font-family: 'Syne', sans-serif; font-size: 50px; font-weight: 800; color: var(--wh); letter-spacing: -.04em; line-height: 1; margin-bottom: 4px; }
+.p-amt sub { font-size: 17px; color: var(--gr); font-weight: 400; vertical-align: baseline; }
+.p-period { font-size: 12px; color: var(--gr); margin-bottom: 32px; }
+.p-div { height: 1px; background: var(--bd); margin-bottom: 32px; }
+.p-feats { list-style: none; margin-bottom: 36px; }
+.p-feats li { display: flex; align-items: flex-start; gap: 12px; color: var(--gr); font-size: 13px; padding: 9px 0; border-bottom: 1px solid var(--bd); line-height: 1.55; }
+.p-feats li:last-child { border-bottom: none; }
+.ck { color: var(--or); font-weight: 700; font-size: 14px; flex-shrink: 0; margin-top: 1px; }
+.p-btn { display: block; text-align: center; text-decoration: none; padding: 14px; border-radius: 5px; font-family: 'Syne', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: .06em; text-transform: uppercase; transition: all .2s; }
+.p-btn-out { border: 1px solid var(--bh); color: var(--gr); }
+.p-btn-out:hover { border-color: var(--or); color: var(--or); }
+.p-btn-fill { background: var(--or); color: var(--dk); box-shadow: 0 0 30px rgba(255,92,26,.3); }
+.p-btn-fill:hover { box-shadow: 0 4px 44px rgba(255,92,26,.55); transform: translateY(-1px); }
+
+/* WHY US */
+.why-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 90px; align-items: center; }
+.why-vis { position: relative; aspect-ratio: 1; display: flex; align-items: center; justify-content: center; max-width: 380px; }
+.ring { position: absolute; border-radius: 50%; border: 1px solid var(--bd); animation: spin 25s linear infinite; }
+.ring:nth-child(1) { width: 100%; height: 100%; }
+.ring:nth-child(2) { width: 68%; height: 68%; animation-direction: reverse; animation-duration: 18s; }
+.ring:nth-child(3) { width: 38%; height: 38%; animation-duration: 12s; }
+.ring::after { content: ''; position: absolute; top: -4px; left: 50%; transform: translateX(-50%); width: 8px; height: 8px; border-radius: 50%; background: var(--or); }
+@keyframes spin { to { transform: rotate(360deg); } }
+.ring-ctr { z-index: 1; text-align: center; }
+.ring-big { font-family: 'Syne', sans-serif; font-size: 64px; font-weight: 800; color: var(--or); letter-spacing: -.04em; line-height: 1; }
+.ring-lbl { font-size: 11px; color: var(--gr); text-transform: uppercase; letter-spacing: .1em; margin-top: 4px; }
+.why-pts { display: flex; flex-direction: column; gap: 18px; margin-top: 32px; }
+.why-pt { display: flex; gap: 16px; align-items: flex-start; padding: 20px; background: var(--cd); border: 1px solid var(--bd); border-radius: 8px; transition: border-color .3s; }
+.why-pt:hover { border-color: rgba(255,92,26,.3); }
+.why-pt-ico { width: 38px; height: 38px; flex-shrink: 0; background: rgba(255,92,26,.1); border: 1px solid rgba(255,92,26,.25); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 17px; }
+.why-pt-t { font-family: 'Syne', sans-serif; font-size: 15px; font-weight: 700; color: var(--wh); margin-bottom: 4px; }
+.why-pt-d { font-size: 13px; color: var(--gr); line-height: 1.7; }
+
+/* CTA BAND */
+.cta-band { margin: 0 60px 110px; padding: 72px; background: var(--cd); border: 1px solid var(--bd); display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; position: relative; overflow: hidden; }
+.cta-band::before { content: ''; position: absolute; left: -80px; top: -80px; width: 350px; height: 350px; background: radial-gradient(circle, rgba(255,92,26,.1), transparent 70%); pointer-events: none; }
+.cta-big { font-family: 'Syne', sans-serif; font-size: clamp(26px, 3.5vw, 44px); font-weight: 800; color: var(--wh); letter-spacing: -.03em; max-width: 460px; line-height: 1.12; }
+.cta-big span { color: var(--or); }
+.cta-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+
+/* CONTACT */
+.contact-box { display: grid; grid-template-columns: 1fr 1.2fr; border: 1px solid var(--bd); background: var(--cd); }
+.c-info { padding: 60px 50px; display: flex; flex-direction: column; justify-content: space-between; border-right: 1px solid var(--bd); }
+.c-item { margin-top: 32px; }
+.c-item-lbl { font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--or); margin-bottom: 6px; font-weight: 600; }
+.c-item-val { font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 700; color: var(--wh); }
+.c-form { padding: 60px 50px; display: flex; flex-direction: column; gap: 14px; }
+.fg { display: flex; flex-direction: column; gap: 6px; }
+.fg label { font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--gr); }
+.fg input, .fg textarea, .fg select { background: var(--dk); border: 1px solid var(--bh); color: var(--wh); padding: 13px 16px; font-family: 'DM Sans', sans-serif; font-size: 14px; outline: none; border-radius: 4px; transition: border-color .2s; width: 100%; }
+.fg input:focus, .fg textarea:focus, .fg select:focus { border-color: var(--or); }
+.fg textarea { resize: vertical; min-height: 88px; }
+.fg select option { background: var(--dk); }
+.f-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.sub-btn { background: var(--or); color: var(--dk); border: none; padding: 16px; font-family: 'Syne', sans-serif; font-size: 14px; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; cursor: pointer; border-radius: 4px; transition: box-shadow .2s, transform .2s; box-shadow: 0 0 30px rgba(255,92,26,.3); margin-top: 4px; width: 100%; }
+.sub-btn:hover { box-shadow: 0 4px 44px rgba(255,92,26,.5); transform: translateY(-1px); }
+.sub-btn.success { background: #1a5c1a; box-shadow: 0 0 30px rgba(26,92,26,.4); }
+
+/* FOOTER */
+footer { border-top: 1px solid var(--bd); padding: 36px 60px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+.f-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 17px; }
+.f-logo span { color: var(--or); }
+.f-copy { font-size: 12px; color: var(--gr); }
+.f-links { display: flex; gap: 24px; list-style: none; }
+.f-links a { font-size: 12px; color: var(--gr); text-decoration: none; letter-spacing: .06em; text-transform: uppercase; transition: color .2s; }
+.f-links a:hover { color: var(--or); }
+
+/* REVEAL */
+.rv { opacity: 0; transform: translateY(36px); transition: opacity .6s ease, transform .6s ease; }
+.rv.in { opacity: 1; transform: none; }
+
+/* GRID BG */
+.grid-bg { position: fixed; inset: 0; pointer-events: none; z-index: 0; background-image: linear-gradient(var(--bd) 1px, transparent 1px), linear-gradient(90deg, var(--bd) 1px, transparent 1px); background-size: 72px 72px; -webkit-mask-image: radial-gradient(ellipse 90% 55% at 50% 0%, #000 20%, transparent 100%); mask-image: radial-gradient(ellipse 90% 55% at 50% 0%, #000 20%, transparent 100%); opacity: .45; }
+
+@media(max-width:900px) {
+  nav { padding: 14px 20px; }
+  .nav-links { display: none; }
+  .hero { padding: 100px 20px 60px; }
+  .stats { gap: 24px; flex-wrap: wrap; justify-content: center; }
+  .wrap { padding: 72px 20px; }
+  .svc-grid, .price-grid { grid-template-columns: 1fr; }
+  .proc-steps { grid-template-columns: 1fr 1fr; gap: 36px; }
+  .proc-steps::before { display: none; }
+  .why-inner { grid-template-columns: 1fr; gap: 50px; }
+  .why-vis { max-width: 260px; margin: 0 auto; }
+  .cta-band { margin: 0 20px 72px; padding: 40px 28px; }
+  .contact-box { grid-template-columns: 1fr; }
+  .c-info { border-right: none; border-bottom: 1px solid var(--bd); padding: 36px 24px; }
+  .c-form { padding: 36px 24px; }
+  footer { padding: 28px 20px; flex-direction: column; text-align: center; }
+  .f-row { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div class="grid-bg"></div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo">Bharvix<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#contact" class="nav-cta">Get Started</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="badge"><span class="badge-dot"></span>India's Performance-First Agency</div>
+  <h1>We Don't Do<br><em>Average.</em></h1>
+  <p class="hero-p">Bharvix Digital runs high-ROI Meta Ads, builds memorable brands, and manages social media that converts — for local businesses ready to grow fast.</p>
+  <div class="hero-btns">
+    <a href="#contact" class="btn-fill">Start Growing</a>
+    <a href="#services" class="btn-out">Our Services</a>
+  </div>
+  <div class="stats">
+    <div class="stat"><div class="n">10<sup>+</sup></div><div class="l">Active Clients</div></div>
+    <div class="stat"><div class="n">3<sup>x</sup></div><div class="l">Avg. ROI</div></div>
+    <div class="stat"><div class="n">48<sup>hr</sup></div><div class="l">Campaign Launch</div></div>
+    <div class="stat"><div class="n">100<sup>%</sup></div><div class="l">Transparent</div></div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker">
+    <span class="ti">Meta Ads</span><span class="ti">Click-to-WhatsApp</span><span class="ti">Social Media Management</span>
+    <span class="ti">Brand Identity</span><span class="ti">Performance Marketing</span><span class="ti">WhatsApp Automation</span>
+    <span class="ti">Lead Generation</span><span class="ti">Creative Design</span>
+    <span class="ti">Meta Ads</span><span class="ti">Click-to-WhatsApp</span><span class="ti">Social Media Management</span>
+    <span class="ti">Brand Identity</span><span class="ti">Performance Marketing</span><span class="ti">WhatsApp Automation</span>
+    <span class="ti">Lead Generation</span><span class="ti">Creative Design</span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<div class="wrap" id="services" style="position:relative;z-index:2;">
+  <div class="svc-hd rv">
+    <div><div class="sec-lbl">What We Do</div><h2 class="sec-h">Three Services.<br>Infinite Growth.</h2></div>
+    <p class="sec-p">We master three high-impact services and deliver world-class results — not mediocre everything.</p>
+  </div>
+  <div class="svc-grid">
+    <div class="svc-card rv">
+      <div class="svc-tag">Most Demanded</div>
+      <span class="svc-num">01 — Performance</span>
+      <div class="svc-icon">&#127919;</div>
+      <div class="svc-name">Meta Ads + Click-to-WhatsApp</div>
+      <p class="svc-desc">Laser-targeted Facebook &amp; Instagram ads that send qualified leads straight to your WhatsApp — zero friction, instant conversations.</p>
+      <ul class="svc-list">
+        <li>Full campaign strategy &amp; setup</li>
+        <li>Location &amp; interest-based targeting</li>
+        <li>Auto WhatsApp message flow</li>
+        <li>A/B tested ad creatives</li>
+        <li>Weekly performance reports</li>
+      </ul>
+    </div>
+    <div class="svc-card rv">
+      <span class="svc-num">02 — Visibility</span>
+      <div class="svc-icon">&#128241;</div>
+      <div class="svc-name">Social Media Management</div>
+      <p class="svc-desc">Instagram, Facebook &amp; LinkedIn handled end-to-end — content, scheduling, engagement and growth strategy that actually works.</p>
+      <ul class="svc-list">
+        <li>Monthly content calendar</li>
+        <li>Professional graphic creatives</li>
+        <li>Reels &amp; video scripts</li>
+        <li>Hashtag &amp; SEO strategy</li>
+        <li>Monthly analytics report</li>
+      </ul>
+    </div>
+    <div class="svc-card rv">
+      <span class="svc-num">03 — Identity</span>
+      <div class="svc-icon">&#10022;</div>
+      <div class="svc-name">Brand Identity &amp; Creatives</div>
+      <p class="svc-desc">From logo to full brand kit — visual identities that are instantly recognisable, scroll-stopping, and built to last for years.</p>
+      <ul class="svc-list">
+        <li>Logo design &amp; brand kit</li>
+        <li>Business card &amp; stationery</li>
+        <li>Ad creative design packs</li>
+        <li>Social media templates</li>
+        <li>Brand guidelines document</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- PROCESS -->
+<div class="wrap" id="process" style="position:relative;z-index:2;padding-top:0;">
+  <div class="proc-ctr rv">
+    <div class="sec-lbl">How It Works</div>
+    <h2 class="sec-h">From Zero to Live in 48 Hours</h2>
+    <p class="sec-p">No lengthy back-and-forth, no confusion. Just results, fast.</p>
+  </div>
+  <div class="proc-steps">
+    <div class="proc-step rv">
+      <div class="proc-num">01</div>
+      <div class="proc-t">Free Consultation</div>
+      <p class="proc-d">We understand your business, goals, and audience in a 30-min call.</p>
+    </div>
+    <div class="proc-step rv">
+      <div class="proc-num">02</div>
+      <div class="proc-t">Strategy &amp; Plan</div>
+      <p class="proc-d">Custom campaign strategy with ad copy, targeting, and creative direction.</p>
+    </div>
+    <div class="proc-step rv">
+      <div class="proc-num">03</div>
+      <div class="proc-t">Build &amp; Launch</div>
+      <p class="proc-d">Creatives designed, ads configured, WhatsApp flow — live within 48 hours.</p>
+    </div>
+    <div class="proc-step rv">
+      <div class="proc-num">04</div>
+      <div class="proc-t">Optimise &amp; Scale</div>
+      <p class="proc-d">Weekly optimisation, transparent reporting, scaling what delivers results.</p>
+    </div>
+  </div>
+</div>
+
+<!-- PRICING -->
+<div class="wrap" id="pricing" style="position:relative;z-index:2;padding-top:0;">
+  <div class="price-ctr rv">
+    <div class="sec-lbl">Transparent Pricing</div>
+    <h2 class="sec-h">No Hidden Fees. Just Results.</h2>
+    <p class="sec-p">Clear, honest plans. Ad spend is always billed directly to Meta — never marked up by us.</p>
+  </div>
+  <div class="price-grid">
+    <div class="p-card rv">
+      <div class="p-plan">Starter</div>
+      <div class="p-amt">&#8377;2,999<sub>/mo</sub></div>
+      <div class="p-period">+ Ad spend billed directly to Meta</div>
+      <div class="p-div"></div>
+      <ul class="p-feats">
+        <li><span class="ck">&#10003;</span>1 Meta Ad Campaign</li>
+        <li><span class="ck">&#10003;</span>Click-to-WhatsApp Setup</li>
+        <li><span class="ck">&#10003;</span>8 Social Media Posts/month</li>
+        <li><span class="ck">&#10003;</span>Basic WhatsApp Auto-Reply</li>
+        <li><span class="ck">&#10003;</span>Monthly Performance Report</li>
+        <li><span class="ck">&#10003;</span>WhatsApp Support</li>
+      </ul>
+      <a href="https://wa.me/919838473015?text=Hi!%20I%20am%20interested%20in%20the%20Starter%20plan%20at%20Bharvix%20Digital." class="p-btn p-btn-out">Get Started</a>
+    </div>
+    <div class="p-card hot rv">
+      <div class="p-plan">Growth</div>
+      <div class="p-amt">&#8377;5,999<sub>/mo</sub></div>
+      <div class="p-period">+ Ad spend billed directly to Meta</div>
+      <div class="p-div"></div>
+      <ul class="p-feats">
+        <li><span class="ck">&#10003;</span>2 Meta Ad Campaigns</li>
+        <li><span class="ck">&#10003;</span>Click-to-WhatsApp + Bot Flow</li>
+        <li><span class="ck">&#10003;</span>12 Social Media Posts/month</li>
+        <li><span class="ck">&#10003;</span>2 Reels Scripts + Captions</li>
+        <li><span class="ck">&#10003;</span>WhatsApp Broadcast Setup</li>
+        <li><span class="ck">&#10003;</span>Weekly Campaign Optimisation</li>
+        <li><span class="ck">&#10003;</span>Dedicated Account Manager</li>
+      </ul>
+      <a href="https://wa.me/919838473015?text=Hi!%20I%20am%20interested%20in%20the%20Growth%20plan%20at%20Bharvix%20Digital." class="p-btn p-btn-fill">Most Popular</a>
+    </div>
+    <div class="p-card rv">
+      <div class="p-plan">Brand Pro</div>
+      <div class="p-amt">&#8377;9,999<sub>/mo</sub></div>
+      <div class="p-period">+ Ad spend billed directly to Meta</div>
+      <div class="p-div"></div>
+      <ul class="p-feats">
+        <li><span class="ck">&#10003;</span>3 Campaigns + A/B Testing</li>
+        <li><span class="ck">&#10003;</span>Full WhatsApp Automation Bot</li>
+        <li><span class="ck">&#10003;</span>20 Posts + 4 Reels/month</li>
+        <li><span class="ck">&#10003;</span>Complete Brand Identity Kit</li>
+        <li><span class="ck">&#10003;</span>Google My Business Setup</li>
+        <li><span class="ck">&#10003;</span>Priority 24hr Support</li>
+        <li><span class="ck">&#10003;</span>Quarterly Strategy Call</li>
+      </ul>
+      <a href="https://wa.me/919838473015?text=Hi!%20I%20am%20interested%20in%20the%20Brand%20Pro%20plan%20at%20Bharvix%20Digital." class="p-btn p-btn-out">Go Pro</a>
+    </div>
+  </div>
+</div>
+
+<!-- WHY US -->
+<div class="wrap" style="position:relative;z-index:2;padding-top:0;">
+  <div class="why-inner">
+    <div>
+      <div class="sec-lbl rv">Why Bharvix</div>
+      <h2 class="sec-h rv">We Treat Your Business Like Ours.</h2>
+      <div class="why-pts">
+        <div class="why-pt rv">
+          <div class="why-pt-ico">&#9889;</div>
+          <div><div class="why-pt-t">AI-Powered Execution</div><div class="why-pt-d">Cutting-edge AI tools to run smarter, faster campaigns at a fraction of big agency costs.</div></div>
+        </div>
+        <div class="why-pt rv">
+          <div class="why-pt-ico">&#128205;</div>
+          <div><div class="why-pt-t">Hyper-Local Expertise</div><div class="why-pt-d">We know Tier 2 India — the language, market, audience. Ads built to resonate and convert locally.</div></div>
+        </div>
+        <div class="why-pt rv">
+          <div class="why-pt-ico">&#128202;</div>
+          <div><div class="why-pt-t">100% Transparent Reporting</div><div class="why-pt-d">No vanity metrics. Real numbers — leads, cost per lead, ROAS. Every single week.</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="why-vis rv">
+      <div class="ring"></div>
+      <div class="ring"></div>
+      <div class="ring"></div>
+      <div class="ring-ctr">
+        <div class="ring-big">10+</div>
+        <div class="ring-lbl">Businesses Grown</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA BAND -->
+<div class="cta-band rv">
+  <div class="cta-big">Ready to Get<br><span>Real Results?</span></div>
+  <div class="cta-btns">
+    <a href="https://wa.me/919838473015?text=Hi%20Bharvix%20Digital!%20I%20want%20to%20grow%20my%20business." class="btn-fill">WhatsApp Us Now</a>
+    <a href="mailto:mr.inoftech369@gmail.com" class="btn-out">Send Email</a>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div class="wrap" id="contact" style="position:relative;z-index:2;padding-top:0;">
+  <div class="contact-box rv">
+    <div class="c-info">
+      <div>
+        <div class="sec-lbl">Get In Touch</div>
+        <h2 class="sec-h" style="font-size:clamp(28px,4vw,46px);">Let's Build<br>Something Big.</h2>
+        <p class="sec-p" style="margin-top:14px;">Tell us about your business. We respond within 24 hours with a free audit and custom plan.</p>
+      </div>
+      <div>
+        <div class="c-item"><div class="c-item-lbl">WhatsApp / Call</div><div class="c-item-val">+91 98384 73015</div></div>
+        <div class="c-item"><div class="c-item-lbl">Email</div><div class="c-item-val">mr.inoftech369@gmail.com</div></div>
+        <div class="c-item"><div class="c-item-lbl">Serving</div><div class="c-item-val">Lucknow, Kanpur &amp; Pan India</div></div>
+      </div>
+    </div>
+    <form class="c-form" id="contactForm">
+      <div class="f-row">
+        <div class="fg"><label>Your Name *</label><input type="text" id="f-name" placeholder="Rahul Sharma"></div>
+        <div class="fg"><label>Phone / WhatsApp *</label><input type="tel" id="f-phone" placeholder="+91 98765 43210"></div>
+      </div>
+      <div class="fg"><label>Business Name *</label><input type="text" id="f-biz" placeholder="Your Business Name"></div>
+      <div class="fg">
+        <label>Service Interested In</label>
+        <select id="f-svc">
+          <option value="Not selected">Choose a service...</option>
+          <option>Meta Ads + Click-to-WhatsApp</option>
+          <option>Social Media Management</option>
+          <option>Brand Identity and Creatives</option>
+          <option>Full Growth Package</option>
+        </select>
+      </div>
+      <div class="fg"><label>Tell Us About Your Goals</label><textarea id="f-goals" placeholder="Describe your business, target customers, and what results you want..."></textarea></div>
+      <button type="button" class="sub-btn" id="sendBtn" onclick="sendToWhatsApp()">Send Message - Free Consultation</button>
+    </form>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="f-logo">Bharvix<span>.</span>Digital</div>
+  <p class="f-copy">&#169; 2025 Bharvix Digital. Built with fire in India.</p>
+  <ul class="f-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="https://wa.me/919838473015">WhatsApp</a></li>
+  </ul>
+</footer>
+
+<script>
+// Scroll reveal
+var obs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry, i) {
+    if (entry.isIntersecting) {
+      setTimeout(function() { entry.target.classList.add('in'); }, i * 80);
+    }
+  });
+}, { threshold: 0.08 });
+document.querySelectorAll('.rv').forEach(function(el) { obs.observe(el); });
+
+// Nav scroll effect
+window.addEventListener('scroll', function() {
+  var nav = document.querySelector('nav');
+  if (window.scrollY > 60) {
+    nav.style.background = 'rgba(10,9,6,0.98)';
+  } else {
+    nav.style.background = 'rgba(10,9,6,0.9)';
+  }
+});
+
+// WHATSAPP FORM - 100% working
+function sendToWhatsApp() {
+  var name  = document.getElementById('f-name').value.trim();
+  var phone = document.getElementById('f-phone').value.trim();
+  var biz   = document.getElementById('f-biz').value.trim();
+  var svc   = document.getElementById('f-svc').value;
+  var goals = document.getElementById('f-goals').value.trim();
+
+  if (!name) { alert('Please enter your Name!'); document.getElementById('f-name').focus(); return; }
+  if (!phone) { alert('Please enter your Phone number!'); document.getElementById('f-phone').focus(); return; }
+  if (!biz) { alert('Please enter your Business Name!'); document.getElementById('f-biz').focus(); return; }
+
+  var message = 'New Lead from Bharvix Digital Website' +
+    '\n\nName: ' + name +
+    '\nPhone: ' + phone +
+    '\nBusiness: ' + biz +
+    '\nService: ' + svc +
+    '\nGoals: ' + (goals ? goals : 'Not mentioned') +
+    '\n\n_Sent from bharvixdigital website_';
+
+  var url = 'https://wa.me/919838473015?text=' + encodeURIComponent(message);
+
+  var btn = document.getElementById('sendBtn');
+  btn.textContent = 'Opening WhatsApp...';
+  btn.classList.add('success');
+
+  window.open(url, '_blank');
+
+  setTimeout(function() {
+    btn.textContent = 'Send Message - Free Consultation';
+    btn.classList.remove('success');
+    document.getElementById('contactForm').reset();
+  }, 3000);
+}
+</script>
+</body>
+</html>
